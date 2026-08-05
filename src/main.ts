@@ -6,34 +6,56 @@ type n = number;
 const menu = document.querySelector(".list-menu") as HTMLElement;
 const navMenu = document.querySelector(".menu") as HTMLElement;
 const divLogOut = document.createElement("div") as HTMLElement;
-const iForIcon = document.createElement("i") as HTMLElement;
-const aLink = document.createElement("a") as HTMLAnchorElement;
 const fargment = document.createDocumentFragment() as DocumentFragment;
 
-const list: s[] = ["Form", "List", "Profile", "results", "setting", "Account"];
+interface icon {
+  first: s;
+  second: s;
+}
 
-list.forEach((list: s, i: n) => {
+const list: s[] = [
+  "Form",
+  "List",
+  "Profile",
+  "results",
+  "setting",
+  "Account",
+  "LogOut",
+];
+const iconList: icon[] = [
+  { first: "fa-regular", second: "fa-file" },
+  { first: "fa-solid", second: "fa-list" },
+  { first: "fa-regular", second: "fa-circle-user" },
+  { first: "fa-solid", second: "fa-square-poll-horizontal" },
+  { first: "fa-solid", second: "fa-gear" },
+  { first: "fa-regular", second: "fa-user" },
+  { first: "fa-solid", second: "fa-right-from-bracket" },
+];
+
+list.forEach((item: s, i: n) => {
   const li = document.createElement("li") as HTMLLIElement;
   const a = document.createElement("a") as HTMLAnchorElement;
+  const p = document.createElement("p") as HTMLElement;
+  const icons = document.createElement("i") as HTMLElement;
 
-  a.href = `#${list.toLowerCase()}`;
-  a.textContent = list;
+  p.textContent = item;
+
+  a.href = `#${item.toLowerCase()}`;
   a.classList.add("list");
 
-  li.dataset.section = list.toLowerCase();
+  const currentIcon = iconList[i];
+  icons.classList.add(`${currentIcon?.first}`);
+  icons.classList.add(`${currentIcon?.second}`);
+
+  li.dataset.section = item.toLowerCase();
   li.classList.add(`${i}`);
 
+  a.appendChild(icons);
+  a.appendChild(p);
   li.appendChild(a);
   fargment.appendChild(li);
 });
 
 menu.appendChild(fargment);
 
-divLogOut.classList.add("log-out");
-iForIcon.classList.add("fa-solid");
-iForIcon.classList.add("fa-door-open");
-aLink.href = "#";
-
-aLink.appendChild(iForIcon);
-divLogOut.appendChild(aLink);
 navMenu.appendChild(divLogOut);
