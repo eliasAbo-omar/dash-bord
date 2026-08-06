@@ -7,7 +7,7 @@
 :root {
   --main-color: #fefdfb;
   --second-color: #000303;
-  --background-color: #000303;
+  --background-color: #3b0a5e;
 }
 
 .color-container {
@@ -57,7 +57,7 @@
 }
 
 .head .info_account .name {
-  color: rgba(169, 85, 247, 0.76);
+  color: var(--main-color);
 }
 
 .head .menu {
