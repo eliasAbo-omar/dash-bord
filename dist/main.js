@@ -40,5 +40,43 @@ list.forEach((item, i) => {
 });
 menu.appendChild(fargment);
 navMenu.appendChild(divLogOut);
+const toggle = document.querySelector(".toggle");
+const header = document.querySelector(".header");
+const head = document.querySelector(".head");
+const imgSearch = document.querySelector(".img-search");
+const search = document.querySelector(".search");
+const profile = document.querySelector(".profile");
+const content = document.querySelector(".content");
+toggle.addEventListener("click", () => {
+    header.classList.toggle("active");
+    head.classList.toggle("active");
+    content.classList.toggle("active");
+});
+imgSearch.addEventListener("click", () => {
+    imgSearch.classList.toggle("active");
+    search.classList.toggle("active");
+});
+profile.addEventListener("click", () => {
+    header.classList.toggle("active");
+    head.classList.toggle("active");
+    content.classList.toggle("active");
+});
+document.addEventListener("click", (e) => {
+    const target = e.target;
+    const closest = target.closest(".head") ||
+        target.closest(".toggle") ||
+        target.closest(".profile");
+    const searchClosest = target.closest(".search") ||
+        target.closest(".img-search");
+    if (!closest) {
+        header.classList.remove("active");
+        head.classList.remove("active");
+        content.classList.remove("active");
+    }
+    if (!searchClosest) {
+        imgSearch.classList.remove("active");
+        search.classList.remove("active");
+    }
+});
 export {};
 //# sourceMappingURL=main.js.map

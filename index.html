@@ -17,26 +17,86 @@
     />
     <!-- ========== Main Style ========== -->
     <link rel="stylesheet" href="./css/style.css" />
-    <title>DashBord</title>
+    <title>Dash Bord</title>
   </head>
   <body>
-    <div class="color-container">
-      <aside class="head">
-        <div class="info_account">
-          <div class="icon"></div>
-          <h3 class="name">Elias Khaled</h3>
+    <aside class="head">
+      <div class="info_account">
+        <div class="icon"></div>
+        <h3 class="name">Elias Khaled</h3>
+      </div>
+      <nav class="menu">
+        <ul class="list-menu"></ul>
+      </nav>
+    </aside>
+    <main class="content">
+      <header class="header">
+        <div class="toggle">
+          <i class="fa-solid fa-bars"></i>
         </div>
-        <nav class="menu">
-          <ul class="list-menu"></ul>
-        </nav>
-      </aside>
-    </div>
+        <div class="search">
+          <div class="img-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <input type="text" placeholder="Search" />
+        </div>
+        <div class="icons">
+          <div class="profile">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <i class="fa-solid fa-bell"></i>
+          <i class="fa-solid fa-message"></i>
+        </div>
+      </header>
+      <div class="container">
+        <h1>Quick Stats</h1>
+        <div class="cards">
+          <div class="total-card">
+            <div class="icon">
+              <i class="fa-solid fa-clipboard"></i>
+            </div>
+            <div class="text-card">
+              <h4>New Form <n>Submission</n></h4>
+              <p>120</p>
+            </div>
+          </div>
+          <div class="total-card">
+            <div class="icon">
+              <i class="fa-solid fa-list-check"></i>
+            </div>
+            <div class="text-card">
+              <h4>Open Lists</h4>
+              <p>40</p>
+            </div>
+          </div>
+          <div class="total-card">
+            <div class="icon">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <div class="text-card">
+              <h4>Completion Rate</h4>
+              <p>88%</p>
+            </div>
+          </div>
+          <div class="total-card">
+            <div class="icon">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="text-card">
+              <h4>Active Profiles</h4>
+              <p>1,200</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
     <!-- ========== Font Awesome ========== -->
     <script src="./js/all.min.js"></script>
     <!-- ========== Bootstrap ========== -->
     <script src="./js/bootstrap.bundle.min.js"></script>
-    <!-- ========== Scroll Reveal ========== -->
-    <script src="./js/scrollreveal.min.js"></script>
+    <!-- ========== Scroll Reveal ==========
+    <script src="./js/scrollreveal.min.js"></script> -->
     <!-- ========== Main JS ========== -->
     <script type="module" src="./dist/main.js"></script>
   </body>

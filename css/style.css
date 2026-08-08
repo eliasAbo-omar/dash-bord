@@ -5,17 +5,32 @@
 }
 
 :root {
-  --main-color: #fefdfb;
-  --second-color: #000303;
-  --background-color: #3b0a5e;
+  --bg-primary: #1a1a1d; /* الخلفية الرئيسية للداشبورد */
+  --bg-sidebar: #121820; /* خلفية القائمة الجانبية */
+  --bg-card: #12253d; /* خلفية البطاقات والرسوم البيانية */
+  --bg-button: #42424d; /* خلفية أزرار القائمة الجانبية */
+  --bg-button-active: #3f51b5; /* خلفية الزر النشط */
+  --bg-input: #ffffff; /* خلفية مربع البحث */
+
+  /* ألوان النصوص / Typography */
+  --text-primary: #f5f5f7; /* النص الرئيسي والعناوين */
+  --text-secondary: #a0aab8; /* النصوص الفرعية والملاحظات */
+  --text-dark: #1a1a1d; /* النص داخل المدخلات الفاتحة */
+
+  /* ألوان البيانات والرسوم البيانية / Data & Charts */
+  --chart-primary: #3f51b5; /* اللون الأساسي للأشرطة البيانية */
+  --chart-secondary: #c62828; /* اللون الثانوي للتطابق/المقارنة */
+  --accent-green: #2e7d32; /* للنسب الإيجابية أو الإنجاز */
+
+  /* الحدود والفاصل / Borders & Dividers */
+  --border-color: #333333; /* خطوط الجداول والحدود */
 }
 
-.color-container {
+body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 22px;
-  background: radial-gradient(circle, rgb(142 142 142) 0%, rgb(102 0 134) 100%)
-    no-repeat;
+  background-color: var(--bg-primary);
   height: 100vh;
 }
 
@@ -26,15 +41,20 @@
   flex-direction: column;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -320px;
   width: 320px;
-  height: 100vh;
+  height: 100%;
   padding: 15px;
-  background-color: var(--background-color);
-  color: var(--main-color);
-  box-shadow: 0 0 20px 0 #00fe8c;
+  background-color: var(--bg-sidebar);
+  box-shadow: 10px 0 20px 0 var(--bg-card);
+  color: var(--text-primary);
   transition: 0.5s all ease-in-out;
   row-gap: 30px;
+}
+
+.head.active {
+  left: 0;
+  box-shadow: none;
 }
 
 .head .info_account {
@@ -52,8 +72,8 @@
   background-repeat: no-repeat;
   padding: 10px;
   margin: 0 auto 15px;
-  border: 2px solid #a855f7;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+  border: 3px solid var(--bg-card);
+  box-shadow: 0 0 10px 0 #ffffff57;
 }
 
 .head .info_account .name {
@@ -77,8 +97,7 @@
 }
 
 .head .menu .list-menu li {
-  background: #111827;
-  border: 1px solid #10b981;
+  background: var(--bg-button);
   border-radius: 12px;
   cursor: pointer;
   transition: 0.5s all ease;
@@ -94,7 +113,7 @@
   width: 100%;
   height: 100%;
   text-decoration: none;
-  color: #e9d5ff;
+  color: var(--text-primary);
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -114,18 +133,200 @@
 
 @media (hover: hover) {
   .head .menu .list-menu li:hover {
-    border-color: #a855f7;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); /* توهج بنفسجي خفيف */
-    background: rgba(168, 85, 247, 0.1);
-  }
-  .head .menu .list-menu li:hover a {
-    color: #a855f7;
-  }
-  .head .menu .log-out a:hover svg {
-    color: #a855f7;
+    background: var(--bg-button-active);
   }
 }
 
-.head .menu .list-menu li:active svg {
-  color: #a855f7;
+/* ========== header ========== */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s all ease-in-out;
+}
+
+.content.active {
+  margin-left: 320px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: 0.5s all ease-in-out;
+  width: 100%;
+  max-height: 75px;
+  box-shadow: 20px 0 20px 0 #000000;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.header.active {
+  left: 320px;
+}
+
+.header .toggle,
+.header .icons {
+  cursor: pointer;
+}
+
+.header .icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .toggle svg,
+.header .icons svg {
+  transition: 0.3s all ease-in-out;
+}
+
+@media (hover: hover) {
+  .header .toggle svg:hover,
+  .header .icons svg:hover {
+    color: var(--bg-card);
+  }
+}
+
+.header .toggle svg:active,
+.header .icons svg:active {
+  color: var(--bg-card);
+}
+
+.header .search {
+  position: relative;
+  width: 100%;
+  max-width: 40px;
+  overflow: hidden;
+  margin: 0 10px;
+  transition: 0.5s all ease-in-out;
+}
+
+.header .search.active {
+  max-width: 400px;
+}
+
+.header .search input {
+  width: 100%;
+  padding: 10px 0px 10px 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-input);
+  color: var(--text-dark);
+  font-size: 16px;
+  transition: 0.5s all ease-in-out;
+  outline: none;
+}
+
+.header .search .img-search {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: gray;
+  color: var(--text-dark);
+  left: 0px;
+  transition: 0.5s all ease-in-out;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 40px;
+  padding: 11.3px 0px;
+  text-align: center;
+}
+
+.header .search .img-search.active {
+  background-color: transparent;
+}
+
+/* ========== Cards ========== */
+
+.content h1 {
+  color: var(--text-primary);
+  margin: 30px 0 0;
+  transition: 0.5s all ease-in-out;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px 0 0;
+  margin: 0 auto 15px;
+  transition: 0.5s all ease-in-out;
+}
+
+.cards.active {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.cards .total-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.cards .total-card .icon {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.cards .total-card .icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  background-color: #23424e;
+  color: #48a09c;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.cards .total-card .text-card {
+  width: 75%;
+  padding: 10px;
+  position: relative;
+}
+
+.cards .total-card .text-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 2px;
+  height: 100%;
+  background-color: var(--border-color);
+}
+
+.cards .total-card h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cards .total-card .text-card p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@media (hover: hover) {
+  .cards .total-card:hover {
+    transform: scale(1.08);
+  }
+}
+
+.cards .total-card:active {
+  transform: scale(1.05);
 }

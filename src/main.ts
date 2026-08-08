@@ -59,3 +59,52 @@ list.forEach((item: s, i: n) => {
 menu.appendChild(fargment);
 
 navMenu.appendChild(divLogOut);
+
+// ========== active class on many element ===========
+const toggle = document.querySelector(".toggle") as HTMLElement;
+const header = document.querySelector(".header") as HTMLElement;
+const head = document.querySelector(".head") as HTMLElement;
+const imgSearch = document.querySelector(".img-search") as HTMLElement;
+const search = document.querySelector(".search") as HTMLElement;
+const profile = document.querySelector(".profile") as HTMLElement;
+const content = document.querySelector(".content") as HTMLElement;
+
+toggle.addEventListener("click", () => {
+  header.classList.toggle("active");
+  head.classList.toggle("active");
+  content.classList.toggle("active");
+});
+
+imgSearch.addEventListener("click", () => {
+  imgSearch.classList.toggle("active");
+  search.classList.toggle("active");
+});
+
+profile.addEventListener("click", () => {
+  header.classList.toggle("active");
+  head.classList.toggle("active");
+  content.classList.toggle("active");
+});
+
+document.addEventListener("click", (e: Event) => {
+  const target = e.target as HTMLElement;
+  const closest =
+    (target.closest(".head") as HTMLElement) ||
+    (target.closest(".toggle") as HTMLElement) ||
+    (target.closest(".profile") as HTMLElement);
+
+  const searchClosest =
+    (target.closest(".search") as HTMLElement) ||
+    (target.closest(".img-search") as HTMLElement);
+
+  if (!closest) {
+    header.classList.remove("active");
+    head.classList.remove("active");
+    content.classList.remove("active");
+  }
+
+  if (!searchClosest) {
+    imgSearch.classList.remove("active");
+    search.classList.remove("active");
+  }
+});
