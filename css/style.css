@@ -5,25 +5,22 @@
 }
 
 :root {
-  --bg-primary: #1a1a1d; /* الخلفية الرئيسية للداشبورد */
-  --bg-sidebar: #121820; /* خلفية القائمة الجانبية */
-  --bg-card: #12253d; /* خلفية البطاقات والرسوم البيانية */
-  --bg-button: #42424d; /* خلفية أزرار القائمة الجانبية */
-  --bg-button-active: #3f51b5; /* خلفية الزر النشط */
-  --bg-input: #ffffff; /* خلفية مربع البحث */
+  --bg-primary: #1a1a1d;
+  --bg-sidebar: #121820;
+  --bg-card: #12253d;
+  --bg-button: #42424d;
+  --bg-button-active: #3f51b5;
+  --bg-input: #ffffff;
 
-  /* ألوان النصوص / Typography */
-  --text-primary: #f5f5f7; /* النص الرئيسي والعناوين */
-  --text-secondary: #a0aab8; /* النصوص الفرعية والملاحظات */
-  --text-dark: #1a1a1d; /* النص داخل المدخلات الفاتحة */
+  --text-primary: #f5f5f7;
+  --text-secondary: #a0aab8;
+  --text-dark: #1a1a1d;
 
-  /* ألوان البيانات والرسوم البيانية / Data & Charts */
-  --chart-primary: #3f51b5; /* اللون الأساسي للأشرطة البيانية */
-  --chart-secondary: #c62828; /* اللون الثانوي للتطابق/المقارنة */
-  --accent-green: #2e7d32; /* للنسب الإيجابية أو الإنجاز */
+  --chart-primary: #3f51b5;
+  --chart-secondary: #c62828;
+  --accent-green: #2e7d32;
 
-  /* الحدود والفاصل / Borders & Dividers */
-  --border-color: #333333; /* خطوط الجداول والحدود */
+  --border-color: #333333;
 }
 
 body {
