@@ -108,3 +108,21 @@ document.addEventListener("click", (e: Event) => {
     search.classList.remove("active");
   }
 });
+
+// ========== height color red&blue ===========
+const red = document.querySelectorAll(".red") as NodeListOf<HTMLElement>;
+const blue = document.querySelectorAll(".blue") as NodeListOf<HTMLElement>;
+
+red.forEach((item: HTMLElement, i: n) => {
+  setTimeout(() => {
+    const random = Math.floor(Math.random() * 100);
+    item.style.height = `${random}%`;
+  }, i * 100);
+});
+
+blue.forEach((item: HTMLElement, i: n) => {
+  setTimeout(() => {
+    const random = Math.floor(Math.random() * 100);
+    item.style.height = `${random}%`;
+  }, i * 100);
+});

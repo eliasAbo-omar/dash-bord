@@ -78,5 +78,19 @@ document.addEventListener("click", (e) => {
         search.classList.remove("active");
     }
 });
+const red = document.querySelectorAll(".red");
+const blue = document.querySelectorAll(".blue");
+red.forEach((item, i) => {
+    setTimeout(() => {
+        const random = Math.floor(Math.random() * 100);
+        item.style.height = `${random}%`;
+    }, i * 100);
+});
+blue.forEach((item, i) => {
+    setTimeout(() => {
+        const random = Math.floor(Math.random() * 100);
+        item.style.height = `${random}%`;
+    }, i * 100);
+});
 export {};
 //# sourceMappingURL=main.js.map
