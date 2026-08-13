@@ -366,8 +366,8 @@ body {
 }
 
 .chart-card.one {
-  width: 70%;
-  padding: 20px 0 40px;
+  flex: 1;
+  padding: 20px 5px 40px;
   font-size: 20px;
   border-radius: 12px;
   position: relative;
@@ -475,5 +475,24 @@ tr:last-child {
   .chart-container .one,
   .chart-container .two {
     width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .chart-card {
+    gap: 0;
+  }
+
+  .chart-card .text {
+    padding: 0 5px;
+    font-size: 12px;
+  }
+
+  .chart-card .chart {
+    gap: 0;
+  }
+
+  .chart-card.two {
+    border: none;
   }
 }
