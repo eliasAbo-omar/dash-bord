@@ -46,20 +46,23 @@ const head = document.querySelector(".head");
 const imgSearch = document.querySelector(".img-search");
 const search = document.querySelector(".search");
 const profile = document.querySelector(".profile");
-const content = document.querySelector(".content");
+const cards = document.querySelector(".cards");
+const close = document.querySelector(".close");
 toggle.addEventListener("click", () => {
     header.classList.toggle("active");
     head.classList.toggle("active");
-    content.classList.toggle("active");
+    cards.classList.toggle("active");
 });
 imgSearch.addEventListener("click", () => {
-    imgSearch.classList.toggle("active");
     search.classList.toggle("active");
 });
 profile.addEventListener("click", () => {
     header.classList.toggle("active");
     head.classList.toggle("active");
-    content.classList.toggle("active");
+});
+close.addEventListener("click", () => {
+    header.classList.remove("active");
+    head.classList.remove("active");
 });
 document.addEventListener("click", (e) => {
     const target = e.target;
@@ -71,10 +74,8 @@ document.addEventListener("click", (e) => {
     if (!closest) {
         header.classList.remove("active");
         head.classList.remove("active");
-        content.classList.remove("active");
     }
     if (!searchClosest) {
-        imgSearch.classList.remove("active");
         search.classList.remove("active");
     }
 });

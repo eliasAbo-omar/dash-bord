@@ -67,23 +67,27 @@ const head = document.querySelector(".head") as HTMLElement;
 const imgSearch = document.querySelector(".img-search") as HTMLElement;
 const search = document.querySelector(".search") as HTMLElement;
 const profile = document.querySelector(".profile") as HTMLElement;
-const content = document.querySelector(".content") as HTMLElement;
+const cards = document.querySelector(".cards") as HTMLElement;
+const close = document.querySelector(".close") as HTMLElement;
 
 toggle.addEventListener("click", () => {
   header.classList.toggle("active");
   head.classList.toggle("active");
-  content.classList.toggle("active");
+  cards.classList.toggle("active");
 });
 
 imgSearch.addEventListener("click", () => {
-  imgSearch.classList.toggle("active");
   search.classList.toggle("active");
 });
 
 profile.addEventListener("click", () => {
   header.classList.toggle("active");
   head.classList.toggle("active");
-  content.classList.toggle("active");
+});
+
+close.addEventListener("click", () => {
+  header.classList.remove("active");
+  head.classList.remove("active");
 });
 
 document.addEventListener("click", (e: Event) => {
@@ -100,11 +104,9 @@ document.addEventListener("click", (e: Event) => {
   if (!closest) {
     header.classList.remove("active");
     head.classList.remove("active");
-    content.classList.remove("active");
   }
 
   if (!searchClosest) {
-    imgSearch.classList.remove("active");
     search.classList.remove("active");
   }
 });
