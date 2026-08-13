@@ -495,4 +495,9 @@ tr:last-child {
   .chart-card.two {
     border: none;
   }
+
+  .chart-card .chart .month {
+    font-size: 11px;
+    bottom: -20px;
+  }
 }
