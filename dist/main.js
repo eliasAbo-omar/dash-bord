@@ -93,5 +93,25 @@ blue.forEach((item, i) => {
         item.style.height = `${random}%`;
     }, i * 100);
 });
+const p = document.querySelectorAll(".total-card .text-card p");
+const configs = [
+    { max: 120, suffix: "" },
+    { max: 100, suffix: "" },
+    { max: 100, suffix: "%" },
+    { max: 1200, suffix: "" },
+];
+p.forEach((item, i) => {
+    const config = configs[i];
+    if (config) {
+        const random = Math.floor(Math.random() * config.max) + 1;
+        item.textContent = `${random}${config.suffix}`;
+    }
+});
+const time = document.querySelectorAll(".time");
+time.forEach((item) => {
+    const random = Math.floor(Math.random() * 24) + 1;
+    const unit = random <= 10 ? "Hour" : "Hours";
+    item.textContent = `${random} ${unit} Ago`;
+});
 export {};
 //# sourceMappingURL=main.js.map

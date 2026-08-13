@@ -128,3 +128,37 @@ blue.forEach((item: HTMLElement, i: n) => {
     item.style.height = `${random}%`;
   }, i * 100);
 });
+
+// ========== list Value ===========
+
+const p = document.querySelectorAll(
+  ".total-card .text-card p",
+) as NodeListOf<HTMLElement>;
+
+interface P {
+  max: n;
+  suffix: s;
+}
+
+const configs: P[] = [
+  { max: 120, suffix: "" },
+  { max: 100, suffix: "" },
+  { max: 100, suffix: "%" },
+  { max: 1200, suffix: "" },
+];
+
+p.forEach((item: HTMLElement, i: n) => {
+  const config: P | undefined = configs[i];
+  if (config) {
+    const random = Math.floor(Math.random() * config.max) + 1;
+    item.textContent = `${random}${config.suffix}`;
+  }
+});
+
+const time = document.querySelectorAll(".time") as NodeListOf<HTMLElement>;
+
+time.forEach((item: HTMLElement) => {
+  const random = Math.floor(Math.random() * 24) + 1;
+  const unit = random <= 10 ? "Hour" : "Hours";
+  item.textContent = `${random} ${unit} Ago`;
+});
