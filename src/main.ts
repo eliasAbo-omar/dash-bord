@@ -4,8 +4,6 @@ type n = number;
 // Add List In Menu
 
 const menu = document.querySelector(".list-menu") as HTMLElement;
-const navMenu = document.querySelector(".menu") as HTMLElement;
-const divLogOut = document.createElement("div") as HTMLElement;
 const fargment = document.createDocumentFragment() as DocumentFragment;
 
 interface icon {
@@ -57,8 +55,6 @@ list.forEach((item: s, i: n) => {
 });
 
 menu.appendChild(fargment);
-
-navMenu.appendChild(divLogOut);
 
 // ========== active class on many element ===========
 const toggle = document.querySelector(".toggle") as HTMLElement;

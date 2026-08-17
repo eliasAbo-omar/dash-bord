@@ -1,6 +1,4 @@
 const menu = document.querySelector(".list-menu");
-const navMenu = document.querySelector(".menu");
-const divLogOut = document.createElement("div");
 const fargment = document.createDocumentFragment();
 const list = [
     "Form",
@@ -39,7 +37,6 @@ list.forEach((item, i) => {
     fargment.appendChild(li);
 });
 menu.appendChild(fargment);
-navMenu.appendChild(divLogOut);
 const toggle = document.querySelector(".toggle");
 const header = document.querySelector(".header");
 const head = document.querySelector(".head");
