@@ -500,4 +500,8 @@ tr:last-child {
     font-size: 11px;
     bottom: -20px;
   }
+
+  .info td {
+    font-size: 14px;
+  }
 }
